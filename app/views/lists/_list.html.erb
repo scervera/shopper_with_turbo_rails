@@ -1,0 +1,24 @@
+<%= turbo_frame_tag list do %>
+<div id="<%= dom_id list %>">
+    <h1 class="block font-medium text-xl mb-1">
+      <%= link_to list.name,
+          list_path(list),
+          data: { turbo_frame: "_top" }  %>
+      
+      <%# if action_name != "index" %>  
+            <%= button_to 'Delete', 
+            @list,
+            method: :delete, 
+            class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
+            
+            <%= link_to 'Edit',
+            edit_list_path(list),
+            class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+        
+      <%# end %>
+
+    </h1>
+    <hr class="mt-6">
+
+</div>
+<% end %>
